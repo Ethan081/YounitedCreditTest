@@ -1,0 +1,24 @@
+{
+  "name": "younitedCreditTest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run:chrome": "cypress run --record --key 37556468-8e8b-4c21-b8d3-b83a73ca31ae --browser chrome --handles "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ethan081/YounitedCreditTest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ethan081/YounitedCreditTest/issues"
+  },
+  "homepage": "https://github.com/Ethan081/YounitedCreditTest#readme",
+  "devDependencies": {
+    "cypress": "^4.10.0"
+  }
+}
