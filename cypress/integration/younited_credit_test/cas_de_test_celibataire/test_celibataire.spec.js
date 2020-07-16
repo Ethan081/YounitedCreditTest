@@ -24,7 +24,7 @@ describe('subscrib credit for single', () =>{
 
     })
     it('email authenfification valid', () =>{
-        cy.get('#email-input').type('ziegelmeyer.etienne@yahoo.fr').should('have.value', 'ziegelmeyer.etienne@yahoo.fr')
+        cy.get('#email-input').type('mymail@mail.com').should('have.value', 'mymail@mail.com')
         cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
         cy.contains('Voir mon offre personnalisée').click()
         
