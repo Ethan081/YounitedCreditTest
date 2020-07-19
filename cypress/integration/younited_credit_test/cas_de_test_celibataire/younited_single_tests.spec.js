@@ -1,5 +1,7 @@
 describe('Single credit tests', () =>{
 
+    let profile = require('../../../fixtures/singleProfile')
+
     before('connection site test', () =>{
         cy.visit('https://www.younited-credit.com/')
         cy.url()
@@ -8,7 +10,7 @@ describe('Single credit tests', () =>{
             .should('contain', 'Le Crédit 100% en Ligne – Réponse en 24h | Younited Credit')
     })
 
-    it('landing page', () =>{
+    it.only('landing page', () =>{
         cy.get('#projectSelect')
             .select('NEWCAR')
         cy.get('#amount')
@@ -24,8 +26,10 @@ describe('Single credit tests', () =>{
     })
 
     it('Email page', () =>{
-        cy.get('#email-input').type('fosigaza-0467@yopmail.com')
+        /*cy.get('#email-input').type('fosigaza-0467@yopmail.com')
             .should('have.value','fosigaza-0467@yopmail.com')
+        */
+        cy.principal_user(profile.email)
         cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
         cy.contains('Voir mon offre personnalisée')
             .click()
@@ -36,8 +40,10 @@ describe('Single credit tests', () =>{
     })
     
     it('Family situation page', () =>{
-        cy.get('#maritalStatus-input')
+        /*cy.get('#maritalStatus-input')
             .select('SINGLE')
+            */
+        cy.principal_user(profile.maritalStatus)
         cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
         cy.get('#childNumberPropal-input')
             .select('0')
