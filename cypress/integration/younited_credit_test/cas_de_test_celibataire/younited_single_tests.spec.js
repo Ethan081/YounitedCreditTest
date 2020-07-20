@@ -40,7 +40,7 @@ describe('Single credit tests', () =>{
     it('Professional situation Test', () =>{
         cy.urlWebSite('/professionalsituation')
         cy.pageTitle('Younited Credit')
-        cy.activityUser(profile.activitySector, profile.profession, profile.businessActivityStartDateMouth, profile.businessActivityStartDateYear)
+        cy.activitySingleUser(profile.activitySector, profile.profession, profile.businessActivityStartDateMouth, profile.businessActivityStartDateYear)
         cy.get('#ISCOMPANYBANKRUPT_FALSE')
             .check({ force: true })
             .should('be.checked')

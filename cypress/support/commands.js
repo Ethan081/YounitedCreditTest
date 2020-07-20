@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 //const cypress = require("cypress")
+
+
 Cypress.Commands.add("landingchooseUser", (projectSelect, amount, creditMaturity) => {
     cy.get('#projectSelect')
             .select(projectSelect)
@@ -52,20 +54,44 @@ Cypress.Commands.add("housingStatusUser", (housingStatus, housingStatusMouth, ho
     cy.get('#housingStatusFrom-input-year').type(housingStatusYear)
 })
 
-Cypress.Commands.add("activityUser", (activitySector, profession, businessActivityStartDateMouth, businessActivityStartDateYear) => {
+Cypress.Commands.add("activitySingleUser", (activitySector, profession, businessActivityStartDateMouth, businessActivityStartDateYear) => {
     cy.get('#activitySector-input').select(activitySector)
     cy.get('#profession-input').select(profession)
     cy.get('#businessActivityStartDate-input-month').type(businessActivityStartDateMouth)
     cy.get('#businessActivityStartDate-input-year').type(businessActivityStartDateYear)
-    //maried
+
+})
+Cypress.Commands.add("activityMariedUser", (activitySector, profession, contractType, employedFromMouth,employedFromYear) =>{
+    cy.get('#activitySector-input').select(activitySector)
+    cy.get('#profession-input').select(profession)
     cy.get('#contractType-input').select(contractType)
     cy.get('#employedFrom-input-month').type(employedFromMouth)
-    cy.get('#employedFrom-input-year').type(profile.employedFromYear)
+    cy.get('#employedFrom-input-year').type(employedFromYear)
+})
+Cypress.Commands.add("partnerActivityMariedUser", (partnerActivitySector, partnerProfession,partnerContractType,partnerEmployedFromMouth, partnerEmployedFromYear ) =>{
+    cy.get('#partnerActivitySector-input').select(partnerActivitySector)
+    cy.get('#partnerProfession-input').select(partnerProfession)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#partnerContractType-input').select(partnerContractType)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#partnerEmployedFrom-input-month').type(partnerEmployedFromMouth)
+    cy.get('#partnerEmployedFrom-input-year').type(partnerEmployedFromYear)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
 
 Cypress.Commands.add("incomUser", (mainIncome, housingAssistance, additionalIncome) => {
     cy.get('#mainIncome-input').type(mainIncome)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#housingAssistance-input').type(housingAssistance)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#additionalIncome-input').type(additionalIncome)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+})
+
+Cypress.Commands.add("partnerIncomMariedUser", (mainIncome, housingAssistance, additionalIncome, coIncome) =>{
+    cy.get('#mainIncome-input').type(mainIncome)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#coIncome-input').type(coIncome)
     cy.get('#housingAssistance-input').type(housingAssistance)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
     cy.get('#additionalIncome-input').type(additionalIncome)
@@ -79,6 +105,15 @@ Cypress.Commands.add('outcomeUser', (rentAmount, loanCount, type, loanAmount) =>
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
     cy.get('#type-input').select(type)
     cy.get('#loanAmount-input').type(loanAmount)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+})
+Cypress.Commands.add('outcomeMariedUser', (mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount, loanCount) => {
+    cy.get('#mortgageAmount-input').type(mortgageAmount)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#childSupportPaymentsAmount-input').type(childSupportPaymentsAmount)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#childCareExpensesAmount-input').type(childCareExpensesAmount)
+    cy.get('#loanCount-input').select(loanCount)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
 
@@ -105,6 +140,38 @@ Cypress.Commands.add('identityUser', (gender, lastName, firstName, dateOfBirthDa
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
 
+Cypress.Commands.add('identityPartnerMariedUser', (partnerGender, partnerLastName, partnerMaidenName, partnerFirstName, partnerDateOfBirthDay,partnerDateOfBirthMouth, partnerDateOfBirthYear, partnerPostalCode, partnerCity) => {
+    cy.get(partnerGender).check({ force: true }).should('be.checked')
+    cy.get('#lastName-input').type(partnerLastName)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#maidenName-input').type(partnerMaidenName)
+    cy.get('#firstName-input').type(partnerFirstName)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#dateOfBirth-input-day').type(partnerDateOfBirthDay)
+    cy.get('#dateOfBirth-input-month').type(partnerDateOfBirthMouth)
+    cy.get('#dateOfBirth-input-year').type(partnerDateOfBirthYear)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#postalCode-input').type(partnerPostalCode)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#city-input').select(partnerCity)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+})
+
+Cypress.Commands.add('identityPartnerPacsUser', (partnerGender, partnerLastName, partnerFirstName, partnerDateOfBirthDay,partnerDateOfBirthMouth, partnerDateOfBirthYear, partnerPostalCode, partnerCity) => {
+    cy.get(partnerGender).check({ force: true }).should('be.checked')
+    cy.get('#lastName-input').type(partnerLastName)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#firstName-input').type(partnerFirstName)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#dateOfBirth-input-day').type(partnerDateOfBirthDay)
+    cy.get('#dateOfBirth-input-month').type(partnerDateOfBirthMouth)
+    cy.get('#dateOfBirth-input-year').type(partnerDateOfBirthYear)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#postalCode-input').type(partnerPostalCode)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+    cy.get('#city-input').select(partnerCity)
+    cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+})
 Cypress.Commands.add('contactUser', (cellPhoneNumber,phoneNumber,address,postalCode,city,countryZone) => {
     cy.get('#cellPhoneNumber-input').type(cellPhoneNumber)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
@@ -129,9 +196,11 @@ Cypress.Commands.add('insuranceUser', (insurance_subscribers) => {
 Cypress.Commands.add('buttonClick', (label) => {
     cy.contains(label).click()
 })
+
 Cypress.Commands.add('urlWebSite', (urlLog )=>{
     cy.url().should('include', urlLog )
 })
+
 Cypress.Commands.add('pageTitle', (pageTitle )=>{
     cy.get('title')
             .should('contain',pageTitle)
