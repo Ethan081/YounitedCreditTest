@@ -7,7 +7,7 @@
     "dateOfBirthYear": "1975", 
     "address": "54 Rue Vilbrequin'", 
     "postalCode": "33000", 
-    "city" : "Bordeaux", 
+    "city" : "3306333000", 
     "countryZone" : "FR" , 
     "email" : "fosigaza-0467@yopmail.com" , 
     "cellPhoneNumber" : "0645879936", 
@@ -30,5 +30,8 @@
     "loanAmount" : "500", 
     "type" : "REFURBISHMENT_WORKS",  
     "bankCode" : "SOCIETE_GENERALE", 
-    "bankFromYear" : "1998" 
+    "bankFromYear" : "1998" ,
+    "projectSelect": "NEWCAR",
+    "amount": "10K",
+    "creditMaturity": "M60"
 }
