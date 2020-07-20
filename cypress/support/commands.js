@@ -68,6 +68,12 @@ Cypress.Commands.add("activityMariedUser", (activitySector, profession, contract
     cy.get('#employedFrom-input-month').type(employedFromMouth)
     cy.get('#employedFrom-input-year').type(employedFromYear)
 })
+Cypress.Commands.add("activityPacsUser", (activitySector, profession, pensionFromMouth, pensionFromYear) =>{
+    cy.get('#activitySector-input').select(activitySector)
+    cy.get('#profession-input').select(profession)
+    cy.get('#pensionFrom-input-month').type(pensionFromMouth)
+    cy.get('#pensionFrom-input-year').type(pensionFromYear)
+})
 Cypress.Commands.add("partnerActivityMariedUser", (partnerActivitySector, partnerProfession,partnerContractType,partnerEmployedFromMouth, partnerEmployedFromYear ) =>{
     cy.get('#partnerActivitySector-input').select(partnerActivitySector)
     cy.get('#partnerProfession-input').select(partnerProfession)
@@ -77,7 +83,14 @@ Cypress.Commands.add("partnerActivityMariedUser", (partnerActivitySector, partne
     cy.get('#partnerEmployedFrom-input-month').type(partnerEmployedFromMouth)
     cy.get('#partnerEmployedFrom-input-year').type(partnerEmployedFromYear)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
+}) 
+Cypress.Commands.add("partnerActivityPacsUser", (partnerActivitySector, partnerProfession, partnerPensionFromMouth, partnerPensionFromYear) =>{
+    cy.get('#partnerActivitySector-input').select(activitySector)
+    cy.get('#partnerProfession-input').select(profession)
+    cy.get('#partenerPensionFrom-input-month').type(partnerPensionFromMouth)
+    cy.get('#partenerPensionFrom-input-year').type(partnerPensionFromYear)
 })
+
 
 Cypress.Commands.add("incomUser", (mainIncome, housingAssistance, additionalIncome) => {
     cy.get('#mainIncome-input').type(mainIncome)

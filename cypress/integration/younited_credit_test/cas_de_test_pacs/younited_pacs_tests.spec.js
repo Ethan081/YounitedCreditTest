@@ -1,5 +1,5 @@
 describe('Single credit tests', () =>{
-
+    let profile = require('../../../fixtures/pacsProfile')
     before('connection site test', () =>{
         cy.visit('https://www.younited-credit.com/')
         cy.url()
@@ -39,7 +39,7 @@ describe('Single credit tests', () =>{
     it('Professional situation Test', () =>{
         cy.urlWebSite('/professionalsituation')
         cy.pageTitle('Younited Credit')
-        cy.activityMariedUser(profile.activitySector, profile.profession, profile.pensionFromMouth, profile.pensionFromYear)
+        cy.activityPacsUser(profile.activitySector, profile.profession, profile.pensionFromMouth, profile.pensionFromYear)
         cy.get('#ISCOMPANYBANKRUPT_FALSE')
             .check({ force: true })
             .should('be.checked')
@@ -48,7 +48,7 @@ describe('Single credit tests', () =>{
     it('Partner Activity Sector Test', () =>{
         cy.urlWebSite('/partnerprofession')
         cy.pageTitle('Younited Credit')
-        cy.partnerActivityMariedUser(profile.partnerActivitySector, profile.partnerProfession,profile.partnerPensionFromMouth, profile.partnerPensionFromYear)
+        cy.partnerActivityPacsUser(profile.partnerActivitySector, profile.partnerProfession,profile.partnerPensionFromMouth, profile.partnerPensionFromYear)
         cy.buttonClick('Suite')
         
     })

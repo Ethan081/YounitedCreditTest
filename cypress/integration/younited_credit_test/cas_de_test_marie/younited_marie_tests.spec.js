@@ -1,5 +1,7 @@
 describe('Single credit tests', () =>{
 
+    let profile = require('../../../fixtures/marieProfile')
+
     before('connection site test', () =>{
         cy.visit('https://www.younited-credit.com/')
         cy.url()
@@ -90,7 +92,7 @@ describe('Single credit tests', () =>{
         cy.buttonClick('Suite')
     })
     it('Assurance Test', () =>{
-        cy.urlWebSite('/offers')
+        cy.urlWebSite('/insurence/offers')
         cy.pageTitle('Younited Credit')
         cy.insuranceUser(profile.insurance_subscribers)
         cy.get('#INSURANCE-JOBLOSS_NO')
