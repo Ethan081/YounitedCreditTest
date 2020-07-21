@@ -1,5 +1,6 @@
 {
     "gender" : "#GENDERCODE_M",
+    "isMariedOrPaced" : false,
     "lastName": "DuCable" ,
     "firstName": "Jean-Raoul", 
     "dateOfBirthDay": "12", 
