@@ -28,12 +28,12 @@ Cypress.Commands.add("activitySingleUser", (isIndependent, isSalarie, isRetired,
     cy.get('#activitySector-input').select(activitySector)
     cy.get('#profession-input').select(profession)
     if(isIndependent){
-        cy.get('#businessActivityStartDate-input-month').type(businessActivityStartDateMouth).should('have.class', 'ng-valid')
+        cy.get('#businessActivityStartDate-input-month').type(businessActivityStartDateMouth)
         cy.get('#businessActivityStartDate-input-year').type(businessActivityStartDateYear).should('have.class', 'ng-valid')
     }
     if(isSalarie){
         cy.get('#contractType-input').select(contractType).should('have.class', 'ng-valid')
-        cy.get('#employedFrom-input-month').type(employedFromMouth).should('have.class', 'ng-valid')
+        cy.get('#employedFrom-input-month').type(employedFromMouth)
         cy.get('#employedFrom-input-year').type(employedFromYear).should('have.class', 'ng-valid')
     }
     if(isRetired){
@@ -49,7 +49,7 @@ Cypress.Commands.add("partnerActivityMariedUser", (isMariedOrPaced, isSalarie, i
         cy.get('#partnerProfession-input').select(partnerProfession).should('have.class', 'ng-valid')
         if(isSalarie){
             cy.get('#partnerContractType-input').select(partnerContractType).should('have.class', 'ng-valid')
-            cy.get('#partnerEmployedFrom-input-month').type(partnerEmployedFromMouth).should('have.class', 'ng-valid')
+            cy.get('#partnerEmployedFrom-input-month').type(partnerEmployedFromMouth)
             cy.get('#partnerEmployedFrom-input-year').type(partnerEmployedFromYear).should('have.class', 'ng-valid') 
         }
         if(isRetired){
@@ -69,34 +69,38 @@ Cypress.Commands.add("incomUser", (isMariedOrPaced, mainIncome, housingAssistanc
 
     }
 })
-Cypress.Commands.add('outcomeUser', (isMariedOrPaced,rentAmount, loanCount, type, loanAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount) => {
-    cy.get('#rentAmount-input').type(rentAmount).should('have.class', 'ng-valid')
-    cy.get('#loanCount-input').select(loanCount).should('have.class', 'ng-valid')
-    cy.get('#type-input').select(type).should('have.class', 'ng-valid')
-    cy.get('#loanAmount-input').type(loanAmount).should('have.class', 'ng-valid')
+Cypress.Commands.add('outcomeUser', (isSingle, isMariedOrPaced,rentAmount, loanCount, type, loanAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount, loanCountMaried) => {
+    if(isSingle){
+        cy.get('#rentAmount-input').type(rentAmount).should('have.class', 'ng-valid')
+        cy.get('#loanCount-input').select(loanCount).should('have.class', 'ng-valid')
+        cy.get('#type-input').select(type).should('have.class', 'ng-valid')
+        cy.get('#loanAmount-input').type(loanAmount).should('have.class', 'ng-valid')
+    }
     if(isMariedOrPaced){
         cy.get('#mortgageAmount-input').type(mortgageAmount).should('have.class', 'ng-valid')
         cy.get('#childSupportPaymentsAmount-input').type(childSupportPaymentsAmount).should('have.class', 'ng-valid')
         cy.get('#childCareExpensesAmount-input').type(childCareExpensesAmount).should('have.class', 'ng-valid')
+        cy.get('#loanCount-input').select(loanCountMaried).should('have.class', 'ng-valid')
     }
+    
 })
 Cypress.Commands.add('bankUser', (bankCode, bankFromYear) => {
     cy.get('#bankCode-input').select(bankCode).should('have.class', 'ng-valid')
     cy.get('#bankFrom-input-year').type(bankFromYear).should('have.class', 'ng-valid')
 })
 
-Cypress.Commands.add('identityUser', (isMariedOrPaced, gender, lastName, firstName, dateOfBirthDay,dateOfBirthMouth, dateOfBirthYear, postalCode, city, maidenName) => {
+Cypress.Commands.add('identityUser', (isPartner, gender, lastName, maidenName, firstName, dateOfBirthDay,dateOfBirthMouth, dateOfBirthYear, postalCode, city) => {
     cy.get(gender).check({ force: true }).should('be.checked')
     cy.get('#lastName-input').type(lastName).should('have.class', 'ng-valid')
+    if(isPartner){
+        cy.get('#maidenName-input').type(maidenName).should('have.class', 'ng-valid')
+    }
     cy.get('#firstName-input').type(firstName).should('have.class', 'ng-valid')
-    cy.get('#dateOfBirth-input-day').type(dateOfBirthDay).should('have.class', 'ng-valid')
-    cy.get('#dateOfBirth-input-month').type(dateOfBirthMouth).should('have.class', 'ng-valid')
+    cy.get('#dateOfBirth-input-day').type(dateOfBirthDay)
+    cy.get('#dateOfBirth-input-month').type(dateOfBirthMouth)
     cy.get('#dateOfBirth-input-year').type(dateOfBirthYear).should('have.class', 'ng-valid')
     cy.get('#postalCode-input').type(postalCode).should('have.class', 'ng-valid')
     cy.get('#city-input').select(city).should('have.class', 'ng-valid')
-    if(isMariedOrPaced){
-        cy.get('#maidenName-input').type(maidenName)
-    }
     
 })
 Cypress.Commands.add('contactUser', (cellPhoneNumber,phoneNumber,address,postalCode,city,countryZone) => {

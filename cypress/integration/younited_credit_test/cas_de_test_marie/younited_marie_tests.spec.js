@@ -41,7 +41,7 @@ describe('Maried credit tests', () =>{
     it('Professional situation Test', () =>{
         cy.urlWebSite('/professionalsituation')
         cy.pageTitle('Younited Credit')
-        cy.activityMariedUser(profile.activitySector, profile.profession, profile.contractType, profile.employedFromMouth, profile.employedFromYear, profile.contractType)
+        cy.activitySingleUser(false, true, false,profile.activitySector, profile.profession,null, null ,profile.contractType, profile.employedFromMouth, profile.employedFromYear, null, null)
         cy.get('#ISCOMPANYBANKRUPT_FALSE')
             .check({ force: true })
             .should('be.checked')
@@ -50,20 +50,21 @@ describe('Maried credit tests', () =>{
     it('Partner Activity Sector Test', () =>{
         cy.urlWebSite('/partnerprofession')
         cy.pageTitle('Younited Credit')
-        cy.partnerActivityMariedUser(profile.partnerActivitySector, profile.partnerProfession,profile.partnerContractType,profile.partnerEmployedFromMouth, profile.partnerEmployedFromYear)
+        cy.partnerActivityMariedUser(true, true, false,profile.partnerActivitySector, profile.partnerProfession,profile.partnerContractType,profile.partnerEmployedFromMouth, profile.partnerEmployedFromYear, null, null)
         cy.buttonClick('Suite')
         
     })
     it('Main Income Test', () =>{
         cy.urlWebSite('/incomes')
         cy.pageTitle('Younited Credit')
-        cy.partnerIncomMariedUser(profile.mainIncome, profile.housingAssistance, profile.additionalIncome, profile.coIncome)
+        cy.incomUser(true, profile.mainIncome, profile.housingAssistance, profile.additionalIncome, profile.coIncome)
         cy.buttonClick('Suite')
     })
     it('Rent Amount Test', () =>{
         cy.urlWebSite('/outcomes')
         cy.pageTitle('Younited Credit')
-        cy.outcomeMariedUser(profile.mortgageAmount, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCount)
+        cy.wait(3000)
+        cy.outcomeUser(false, true, null, null, null, null, profile.mortgageAmount, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCountMaried)
         cy.buttonClick('Suite')
     })
     it('Bank Test', () =>{
@@ -75,16 +76,16 @@ describe('Maried credit tests', () =>{
     it('Identity Test', () =>{
         cy.urlWebSite('/identity')
         cy.pageTitle('Younited Credit')
-        cy.identityUser(profile.gender, profile.lastName, profile.firstName, profile.dateOfBirthDay,profile.dateOfBirthMouth, profile.dateOfBirthYear, profile.postalCode, profile.city)
+        cy.identityUser(false, profile.gender, profile.lastName, null, profile.firstName, profile.dateOfBirthDay,profile.dateOfBirthMouth, profile.dateOfBirthYear, profile.postalCode, profile.city)
         cy.buttonClick('Suite')
     })
-    it('Partner Identity Test', () =>{
+    it('Identity Partner Test', () =>{
         cy.urlWebSite('/partneridentity')
         cy.pageTitle('Younited Credit')
-        cy.identityPartnerMariedUser(profile.partnerGender, profile.partnerLastName, profile.partnerMaidenName, profile.partnerFirstName, profile.partnerDateOfBirthDay,profile.partnerDateOfBirthMouth, profile.partnerDateOfBirthYear, profile.partnerPostalCode, profile.partnerCity)
+        cy.identityUser(true, profile.partnerGender, profile.partnerLastName, profile.partnerMaidenName, profile.partnerFirstName, profile.partnerDateOfBirthDay,profile.partnerDateOfBirthMouth, profile.partnerDateOfBirthYear, profile.partnerPostalCode, profile.partnerCity)
         cy.buttonClick('Suite')
     })
-
+    
     it('Identity Test', () =>{
         cy.urlWebSite('/contact')
         cy.pageTitle('Younited Credit')
@@ -92,7 +93,7 @@ describe('Maried credit tests', () =>{
         cy.buttonClick('Suite')
     })
     it('Assurance Test', () =>{
-        cy.urlWebSite('/insurence/offers')
+        cy.urlWebSite('/offers')
         cy.pageTitle('Younited Credit')
         cy.insuranceUser(profile.insurance_subscribers)
         cy.get('#INSURANCE-JOBLOSS_NO')

@@ -44,7 +44,7 @@ describe('Single credit tests', () =>{
         it('Professional situation Test', () =>{
             cy.urlWebSite('/professionalsituation')
             cy.pageTitle('Younited Credit')
-            cy.activitySingleUser(profile.activitySector, profile.profession, profile.businessActivityStartDateMouth, profile.businessActivityStartDateYear)
+            cy.activitySingleUser(true, false, false,profile.activitySector, profile.profession, profile.businessActivityStartDateMouth, profile.businessActivityStartDateYear, null, null, null, null, null)
             cy.get('#ISCOMPANYBANKRUPT_FALSE')
                 .check({ force: true })
                 .should('be.checked')
@@ -53,13 +53,13 @@ describe('Single credit tests', () =>{
         it('Main Income Test', () =>{
             cy.urlWebSite('/incomes')
             cy.pageTitle('Younited Credit')
-            cy.incomUser(profile.mainIncome, profile.housingAssistance, profile.additionalIncome)
+            cy.incomUser(false, profile.mainIncome, profile.housingAssistance, profile.additionalIncome, null)
             cy.buttonClick('Suite')
         })
         it('Rent Amount Test', () =>{
             cy.urlWebSite('/outcomes')
             cy.pageTitle('Younited Credit')
-            cy.outcomeUser(profile.rentAmount, profile.loanCount, profile.type, profile.loanAmount)
+            cy.outcomeUser(true,false, profile.rentAmount,profile.loanCount, profile.type, profile.loanAmount)
             cy.buttonClick('Suite')
         })
         it('Bank Test', () =>{
@@ -71,7 +71,7 @@ describe('Single credit tests', () =>{
         it('Identity Test', () =>{
             cy.urlWebSite('/identity')
             cy.pageTitle('Younited Credit')
-            cy.identityUser(profile.gender, profile.lastName, profile.firstName, profile.dateOfBirthDay,profile.dateOfBirthMouth, profile.dateOfBirthYear, profile.postalCode, profile.city)
+            cy.identityUser(false, profile.gender, profile.lastName, null, profile.firstName, profile.dateOfBirthDay,profile.dateOfBirthMouth, profile.dateOfBirthYear, profile.postalCode, profile.city)
             cy.buttonClick('Suite')
         })
 
