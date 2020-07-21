@@ -1,3 +1,10 @@
 {
-  "projectId": "d1cjpg"
+  "projectId": "d1cjpg",
+  "reporter": "mochawesome",
+  "reporterOptions": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+    }
 }

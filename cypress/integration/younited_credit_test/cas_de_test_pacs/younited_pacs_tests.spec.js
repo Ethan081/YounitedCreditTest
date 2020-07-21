@@ -1,4 +1,4 @@
-describe('Single credit tests', () =>{
+describe('Pacs credit tests', () =>{
     let profile = require('../../../fixtures/pacsProfile')
     before('connection site test', () =>{
         cy.visit('https://www.younited-credit.com/')

@@ -1,4 +1,4 @@
-describe('Single credit tests', () =>{
+describe('Maried credit tests', () =>{
 
     let profile = require('../../../fixtures/marieProfile')
 

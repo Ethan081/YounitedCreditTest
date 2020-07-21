@@ -1,0 +1,412 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 15,
+    "passes": 5,
+    "pending": 0,
+    "failures": 10,
+    "start": "2020-07-21T08:56:10.943Z",
+    "end": "2020-07-21T08:57:22.300Z",
+    "duration": 71357,
+    "testsRegistered": 15,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a3fc7166-7a7e-4d70-aa03-790be7a0b80e",
+      "title": "",
+      "fullFile": "cypress/integration/younited_credit_test/cas_de_test_pacs/younited_pacs_tests.spec.js",
+      "file": "cypress/integration/younited_credit_test/cas_de_test_pacs/younited_pacs_tests.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e1288edd-0c45-4a71-9442-38ff4885244b",
+          "title": "Single credit tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "landing page",
+              "fullTitle": "Single credit tests landing page",
+              "timedOut": null,
+              "duration": 9832,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.landingchooseUser(profile.projectSelect, profile.amount, profile.creditMaturity);\ncy.buttonClick('CONTINUER');",
+              "err": {},
+              "uuid": "c18410b9-fe77-4d25-9296-a1d927ab21ee",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Email page",
+              "fullTitle": "Single credit tests Email page",
+              "timedOut": null,
+              "duration": 5923,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/email');\ncy.pageTitle('Younited Credit');\ncy.emailUser(profile.email);\ncy.get('div').should('have.class', 'wrapper-input input-wrapper--valid');\ncy.buttonClick('Voir mon offre personnalisée');",
+              "err": {},
+              "uuid": "010e74cd-61d2-472a-8398-5e582293e6f1",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Family situation page",
+              "fullTitle": "Single credit tests Family situation page",
+              "timedOut": null,
+              "duration": 2530,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/familysituation');\ncy.pageTitle('Younited Credit');\ncy.familySituationUser(profile.maritalStatus, profile.childNumber);\ncy.get('[type=\"checkbox\"]').uncheck({\n  force: true\n});\ncy.buttonClick('Suite');",
+              "err": {},
+              "uuid": "504ce96b-f278-4dba-8c21-373e4ed27c30",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "House page",
+              "fullTitle": "Single credit tests House page",
+              "timedOut": null,
+              "duration": 3581,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/housing');\ncy.pageTitle('Younited Credit');\ncy.housingStatusUser(profile.housingStatus, profile.housingStatusMouth, profile.housingStatusYear);\ncy.get('[type=\"checkbox\"]').uncheck({\n  force: true\n});\ncy.buttonClick('Suite');",
+              "err": {},
+              "uuid": "d3cc1ad8-ad2a-4b98-bacb-4147ed2e371c",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Professional situation Test",
+              "fullTitle": "Single credit tests Professional situation Test",
+              "timedOut": null,
+              "duration": 2182,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/professionalsituation');\ncy.pageTitle('Younited Credit');\ncy.activityPacsUser(profile.activitySector, profile.profession, profile.pensionFromMouth, profile.pensionFromYear);\ncy.get('#ISCOMPANYBANKRUPT_FALSE').check({\n  force: true\n}).should('be.checked');\ncy.buttonClick('Suite');",
+              "err": {},
+              "uuid": "5bdd8045-a3ba-4d6a-a698-a7c760514e81",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Partner Activity Sector Test",
+              "fullTitle": "Single credit tests Partner Activity Sector Test",
+              "timedOut": null,
+              "duration": 1192,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/partnerprofession');\ncy.pageTitle('Younited Credit');\ncy.partnerActivityPacsUser(profile.partnerActivitySector, profile.partnerProfession, profile.partnerPensionFromMouth, profile.partnerPensionFromYear);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "ReferenceError: activitySector is not defined",
+                "estack": "ReferenceError: activitySector is not defined\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:79:49)",
+                "diff": null
+              },
+              "uuid": "0de94456-89c0-48df-8fb6-e5a4717fbc9b",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Main Income Test",
+              "fullTitle": "Single credit tests Main Income Test",
+              "timedOut": null,
+              "duration": 4553,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/incomes');\ncy.pageTitle('Younited Credit');\ncy.partnerIncomMariedUser(profile.mainIncome, profile.coIncome, profile.housingAssistance, profile.additionalIncome);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/incomes'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/incomes'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "8014b71b-6f96-4a26-bb56-1bac33381943",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Rent Amount Test",
+              "fullTitle": "Single credit tests Rent Amount Test",
+              "timedOut": null,
+              "duration": 4567,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/outcomes');\ncy.pageTitle('Younited Credit');\ncy.outcomeMariedUser(profile.rentAmount, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCount);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/outcomes'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/outcomes'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "db022912-e24a-459f-bbeb-a9205e89ee92",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Bank Test",
+              "fullTitle": "Single credit tests Bank Test",
+              "timedOut": null,
+              "duration": 4588,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/bank');\ncy.pageTitle('Younited Credit');\ncy.bankUser(profile.bankCode, profile.bankFromYear);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/bank'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/bank'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "612232b2-beac-465e-b3b4-764c3b3be7dd",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Identity Test",
+              "fullTitle": "Single credit tests Identity Test",
+              "timedOut": null,
+              "duration": 5072,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/identity');\ncy.pageTitle('Younited Credit');\ncy.identityUser(profile.gender, profile.lastName, profile.firstName, profile.dateOfBirthDay, profile.dateOfBirthMouth, profile.dateOfBirthYear, profile.postalCode, profile.city);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/identity'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/identity'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "504c2663-b6d6-4782-aac9-2381000b67ae",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Partner Identity Test",
+              "fullTitle": "Single credit tests Partner Identity Test",
+              "timedOut": null,
+              "duration": 4988,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/partneridentity');\ncy.pageTitle('Younited Credit');\ncy.identityPartnerPacsUser(profile.partnerGender, profile.partnerLastName, profile.partnerFirstName, profile.partnerDateOfBirthDay, profile.partnerDateOfBirthMouth, profile.partnerDateOfBirthYear, profile.partnerPostalCode, profile.partnerCity);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/partneridentity'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/partneridentity'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "824817ae-63a9-4079-8aae-ea5368e3d8cd",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Identity Test",
+              "fullTitle": "Single credit tests Identity Test",
+              "timedOut": null,
+              "duration": 4766,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/contact');\ncy.pageTitle('Younited Credit');\ncy.contactUser(profile.cellPhoneNumber, profile.phoneNumber, profile.address, profile.postalCode, profile.city, profile.countryZone);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/contact'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/contact'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "0e5ba484-dda2-4a5f-a1f1-9e1caad85fdd",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Assurance Test",
+              "fullTitle": "Single credit tests Assurance Test",
+              "timedOut": null,
+              "duration": 4574,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/offers');\ncy.pageTitle('Younited Credit');\ncy.insuranceUser(profile.insurance_subscribers);\ncy.buttonClick('Suite');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/offers'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/offers'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "1f8ea381-f045-42d9-b96b-c8c02df4b853",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Whithout Assurance Test",
+              "fullTitle": "Single credit tests Whithout Assurance Test",
+              "timedOut": null,
+              "duration": 4721,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.buttonClick('Continuer sans assurance');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'Continuer sans assurance' but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'Continuer sans assurance' but never did.\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:201:6)",
+                "diff": null
+              },
+              "uuid": "0f3506f3-8673-4e2d-8fcd-10aa2cd08d2d",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Commercial Offer Test",
+              "fullTitle": "Single credit tests Commercial Offer Test",
+              "timedOut": null,
+              "duration": 4623,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.urlWebSite('/modify-offer');\ncy.pageTitle('Younited Credit');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/modify-offer'",
+                "estack": "AssertionError: Timed out retrying: expected 'https://fr-funnel.younited-credit.com/partnerprofession' to include '/modify-offer'\n    at Context.eval (https://www.younited-credit.com/__cypress/tests?p=cypress/support/index.js:204:12)",
+                "diff": null
+              },
+              "uuid": "fb497141-c681-453d-9716-554b83ac946f",
+              "parentUUID": "e1288edd-0c45-4a71-9442-38ff4885244b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c18410b9-fe77-4d25-9296-a1d927ab21ee",
+            "010e74cd-61d2-472a-8398-5e582293e6f1",
+            "504ce96b-f278-4dba-8c21-373e4ed27c30",
+            "d3cc1ad8-ad2a-4b98-bacb-4147ed2e371c",
+            "5bdd8045-a3ba-4d6a-a698-a7c760514e81"
+          ],
+          "failures": [
+            "0de94456-89c0-48df-8fb6-e5a4717fbc9b",
+            "8014b71b-6f96-4a26-bb56-1bac33381943",
+            "db022912-e24a-459f-bbeb-a9205e89ee92",
+            "612232b2-beac-465e-b3b4-764c3b3be7dd",
+            "504c2663-b6d6-4782-aac9-2381000b67ae",
+            "824817ae-63a9-4079-8aae-ea5368e3d8cd",
+            "0e5ba484-dda2-4a5f-a1f1-9e1caad85fdd",
+            "1f8ea381-f045-42d9-b96b-c8c02df4b853",
+            "0f3506f3-8673-4e2d-8fcd-10aa2cd08d2d",
+            "fb497141-c681-453d-9716-554b83ac946f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 67692,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

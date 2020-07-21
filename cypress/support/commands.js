@@ -100,7 +100,7 @@ Cypress.Commands.add("incomUser", (mainIncome, housingAssistance, additionalInco
     cy.get('#additionalIncome-input').type(additionalIncome)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
-
+//Partner Incom Maried
 Cypress.Commands.add("partnerIncomMariedUser", (mainIncome, housingAssistance, additionalIncome, coIncome) =>{
     cy.get('#mainIncome-input').type(mainIncome)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
@@ -120,6 +120,7 @@ Cypress.Commands.add('outcomeUser', (rentAmount, loanCount, type, loanAmount) =>
     cy.get('#loanAmount-input').type(loanAmount)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
+//outcome Maried
 Cypress.Commands.add('outcomeMariedUser', (mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount, loanCount) => {
     cy.get('#mortgageAmount-input').type(mortgageAmount)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
@@ -136,7 +137,7 @@ Cypress.Commands.add('bankUser', (bankCode, bankFromYear) => {
     cy.get('#bankFrom-input-year').type(bankFromYear)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
-
+//Single
 Cypress.Commands.add('identityUser', (gender, lastName, firstName, dateOfBirthDay,dateOfBirthMouth, dateOfBirthYear, postalCode, city) => {
     cy.get(gender).check({ force: true }).should('be.checked')
     cy.get('#lastName-input').type(lastName)
@@ -152,7 +153,7 @@ Cypress.Commands.add('identityUser', (gender, lastName, firstName, dateOfBirthDa
     cy.get('#city-input').select(city)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
-
+//mariedPartner
 Cypress.Commands.add('identityPartnerMariedUser', (partnerGender, partnerLastName, partnerMaidenName, partnerFirstName, partnerDateOfBirthDay,partnerDateOfBirthMouth, partnerDateOfBirthYear, partnerPostalCode, partnerCity) => {
     cy.get(partnerGender).check({ force: true }).should('be.checked')
     cy.get('#lastName-input').type(partnerLastName)
@@ -169,7 +170,7 @@ Cypress.Commands.add('identityPartnerMariedUser', (partnerGender, partnerLastNam
     cy.get('#city-input').select(partnerCity)
     cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
 })
-
+//PacsPartner
 Cypress.Commands.add('identityPartnerPacsUser', (partnerGender, partnerLastName, partnerFirstName, partnerDateOfBirthDay,partnerDateOfBirthMouth, partnerDateOfBirthYear, partnerPostalCode, partnerCity) => {
     cy.get(partnerGender).check({ force: true }).should('be.checked')
     cy.get('#lastName-input').type(partnerLastName)
