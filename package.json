@@ -6,7 +6,7 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run:chrome": "cypress run --record --key $RECORDID --browser chrome",
-    "cy:run:report": "cypress run --record --key 37556468-8e8b-4c21-b8d3-b83a73ca31ae --browser chrome --headless --reporter mochawesome"
+    "cy:run:report": "cypress run --record --key $RECORDID --browser chrome --headless --reporter mochawesome"
   },
   "repository": {
     "type": "git",
