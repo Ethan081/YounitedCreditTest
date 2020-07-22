@@ -21,6 +21,7 @@ describe('Single credit tests', () =>{
         it('Email page', () =>{
             cy.urlWebSite('/email')
             cy.pageTitle('Younited Credit')
+            cy.wait(3000)
             cy.emailUser(profile.email)
             cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
             cy.buttonClick('Voir mon offre personnalisée')
@@ -59,7 +60,7 @@ describe('Single credit tests', () =>{
         it('Rent Amount Test', () =>{
             cy.urlWebSite('/outcomes')
             cy.pageTitle('Younited Credit')
-            cy.outcomeUser(true,false, profile.rentAmount,profile.loanCount, profile.type, profile.loanAmount)
+            cy.outcomeUser(false, true, false, false, true, profile.rentAmount,null ,null, null, profile.loanCount, profile.type, profile.loanAmount)
             cy.buttonClick('Suite')
         })
         it('Bank Test', () =>{
