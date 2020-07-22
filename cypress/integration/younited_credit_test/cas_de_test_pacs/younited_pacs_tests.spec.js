@@ -63,7 +63,13 @@ describe('Pacs credit tests', () =>{
         cy.urlWebSite('/outcomes')
         cy.pageTitle('Younited Credit')
         cy.wait(3000)
-        cy.outcomeUser(false, true, false, true, true, profile.rentAmount,null, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCount, null, null)
+        cy.outcomeUser({
+            "isOwner":false,
+            "isTenant":true, 
+            "isOwnerWithCredit":false,
+            "isParent":true,
+            "haveOtherLoan":true
+        }, profile.rentAmount,null, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCount, null, null)
         cy.buttonClick('Suite')
     })
     it('Bank Test', () =>{

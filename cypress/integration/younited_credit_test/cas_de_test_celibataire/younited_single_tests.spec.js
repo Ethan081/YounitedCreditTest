@@ -60,7 +60,13 @@ describe('Single credit tests', () =>{
         it('Rent Amount Test', () =>{
             cy.urlWebSite('/outcomes')
             cy.pageTitle('Younited Credit')
-            cy.outcomeUser(false, true, false, false, true, profile.rentAmount,null ,null, null, profile.loanCount, profile.type, profile.loanAmount)
+            cy.outcomeUser({
+                "isOwner":false,
+                "isTenant":true, 
+                "isOwnerWithCredit":false,
+                "isParent":false,
+                "haveOtherLoan":true
+            }, profile.rentAmount,null ,null, null, profile.loanCount, profile.type, profile.loanAmount)
             cy.buttonClick('Suite')
         })
         it('Bank Test', () =>{
@@ -89,7 +95,7 @@ describe('Single credit tests', () =>{
             cy.buttonClick('Suite')
         })
         it('Commercial Offer Test', () =>{
-            cy.urlWebSite('/modify-offer')
+            cy.urlWebSite('/choice')
             cy.pageTitle('Younited Credit')
         })
     

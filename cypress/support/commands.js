@@ -69,18 +69,38 @@ Cypress.Commands.add("incomUser", (isMariedOrPaced, mainIncome, housingAssistanc
 
     }
 })
-Cypress.Commands.add('outcomeUser', (isOwner, isTenant, isOwnerWithCredit, isParent,  haveOtherLoan, rentAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount,loanCount, type, loanAmount) => {
-    if(isTenant){
+// Cypress.Commands.add('outcomeUser', (isOwner, isTenant, isOwnerWithCredit, isParent,  haveOtherLoan, rentAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount,loanCount, type, loanAmount) => {
+//     if(isTenant){
+//         cy.get('#rentAmount-input').type(rentAmount).should('have.class', 'ng-valid')
+//     }
+//     if(isOwnerWithCredit){
+//         cy.get('#mortgageAmount-input').type(mortgageAmount).should('have.class', 'ng-valid')
+//     }
+//     if(isParent){
+//         cy.get('#childSupportPaymentsAmount-input').type(childSupportPaymentsAmount).should('have.class', 'ng-valid')
+//         cy.get('#childCareExpensesAmount-input').type(childCareExpensesAmount).should('have.class', 'ng-valid')
+//     }
+//     if(haveOtherLoan || isOwner){
+//         cy.get('#loanCount-input').select(loanCount).should('have.class', 'ng-valid')
+//         console.log(loanCount)
+//         if(loanCount >= 1){
+//         cy.get('#type-input').select(type).should('have.class', 'ng-valid')
+//         cy.get('#loanAmount-input').type(loanAmount).should('have.class', 'ng-valid')
+//         } 
+//     }
+// })
+Cypress.Commands.add('outcomeUser', (flags, rentAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount,loanCount, type, loanAmount) => {
+    if(flags.isTenant){
         cy.get('#rentAmount-input').type(rentAmount).should('have.class', 'ng-valid')
     }
-    if(isOwnerWithCredit){
+    if(flags.isOwnerWithCredit){
         cy.get('#mortgageAmount-input').type(mortgageAmount).should('have.class', 'ng-valid')
     }
-    if(isParent){
+    if(flags.isParent){
         cy.get('#childSupportPaymentsAmount-input').type(childSupportPaymentsAmount).should('have.class', 'ng-valid')
         cy.get('#childCareExpensesAmount-input').type(childCareExpensesAmount).should('have.class', 'ng-valid')
     }
-    if(haveOtherLoan || isOwner){
+    if(flags.haveOtherLoan || flags.isOwner){
         cy.get('#loanCount-input').select(loanCount).should('have.class', 'ng-valid')
         console.log(loanCount)
         if(loanCount >= 1){

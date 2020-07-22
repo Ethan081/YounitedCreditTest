@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run:chrome": "cypress run --record --key $RECORDID --browser chrome",
+    "cy:run:chrome": "cypress run --record --key $RECORDID --browser chrome --headless",
     "cy:run:report": "cypress run --record --key $RECORDID --browser chrome --headless --reporter mochawesome"
   },
   "repository": {

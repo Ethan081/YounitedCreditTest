@@ -64,7 +64,13 @@ describe('Maried credit tests', () =>{
         cy.urlWebSite('/outcomes')
         cy.pageTitle('Younited Credit')
         cy.wait(3000)
-        cy.outcomeUser(false, false, true, true, true, null, profile.mortgageAmount, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCount, null, null)
+        cy.outcomeUser({
+            "isOwner":false,
+            "isTenant":false, 
+            "isOwnerWithCredit":true,
+            "isParent":true,
+            "haveOtherLoan":true
+        }, null, profile.mortgageAmount, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCount, null, null)
         cy.buttonClick('Suite')
     })
     it('Bank Test', () =>{
