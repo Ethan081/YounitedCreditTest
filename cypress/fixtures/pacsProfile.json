@@ -35,7 +35,7 @@
     "partnerPensionFromYear" : "2010", 
     "mainIncome" : "2000", 
     "coIncome" : "3000",
-    "insurance_subscribers" : "YES_No", 
+    "insurance_subscribers" : "YES_NO", 
     "housingAssistance" : "0", 
     "additionalIncome" : "1500", 
     "mortgageAmount" : "1000",

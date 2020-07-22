@@ -44,7 +44,7 @@
     "mortgageAmount" : "1000",
     "childSupportPaymentsAmount" : "0",
     "childCareExpensesAmount" : "600",
-    "loanCountMaried" : "0",
+    "loanCount" : "0",
     "bankCode" : "CREDIT_MUTUEL", 
     "bankFromYear" : "1990" ,
     "projectSelect": "VACATION",

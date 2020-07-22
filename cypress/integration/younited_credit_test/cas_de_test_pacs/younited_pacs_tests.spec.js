@@ -16,6 +16,7 @@ describe('Pacs credit tests', () =>{
     it('Email page', () =>{
         cy.urlWebSite('/email')
         cy.pageTitle('Younited Credit')
+        cy.wait(3000)
         cy.emailUser(profile.email)
         cy.get('div').should('have.class', 'wrapper-input input-wrapper--valid')
         cy.buttonClick('Voir mon offre personnalisée')
@@ -62,7 +63,7 @@ describe('Pacs credit tests', () =>{
         cy.urlWebSite('/outcomes')
         cy.pageTitle('Younited Credit')
         cy.wait(3000)
-        cy.outcomeUser(false, true, null, null, null, null, profile.mortgageAmount, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCountMaried)
+        cy.outcomeUser(false, true, false, true, true, profile.rentAmount,null, profile.childSupportPaymentsAmount, profile.childCareExpensesAmount, profile.loanCount, null, null)
         cy.buttonClick('Suite')
     })
     it('Bank Test', () =>{
@@ -80,7 +81,7 @@ describe('Pacs credit tests', () =>{
     it('Partner Identity Test', () =>{
         cy.urlWebSite('/partneridentity')
         cy.pageTitle('Younited Credit')
-        cy.identityUser(true, profile.partnerGender, profile.partnerLastName, null, profile.partnerFirstName, profile.partnerDateOfBirthDay,profile.partnerDateOfBirthMouth, profile.partnerDateOfBirthYear, profile.partnerPostalCode, profile.partnerCity)
+        cy.identityUser(false, profile.partnerGender, profile.partnerLastName, null, profile.partnerFirstName, profile.partnerDateOfBirthDay,profile.partnerDateOfBirthMouth, profile.partnerDateOfBirthYear, profile.partnerPostalCode, profile.partnerCity)
         cy.buttonClick('Suite')
     })
 

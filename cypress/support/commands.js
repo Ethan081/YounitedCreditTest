@@ -53,8 +53,8 @@ Cypress.Commands.add("partnerActivityMariedUser", (isMariedOrPaced, isSalarie, i
             cy.get('#partnerEmployedFrom-input-year').type(partnerEmployedFromYear).should('have.class', 'ng-valid') 
         }
         if(isRetired){
-            cy.get('#partenerPensionFrom-input-month').type(partnerPensionFromMouth)
-            cy.get('#partenerPensionFrom-input-year').type(partnerPensionFromYear)
+            cy.get('#partnerPensionFrom-input-month').type(partnerPensionFromMouth)
+            cy.get('#partnerPensionFrom-input-year').type(partnerPensionFromYear)
         }
     }
     
@@ -69,20 +69,39 @@ Cypress.Commands.add("incomUser", (isMariedOrPaced, mainIncome, housingAssistanc
 
     }
 })
-Cypress.Commands.add('outcomeUser', (isSingle, isMariedOrPaced,rentAmount, loanCount, type, loanAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount, loanCountMaried) => {
-    if(isSingle){
+// Cypress.Commands.add('outcomeUser', (isSingle, isMariedOrPaced,rentAmount, loanCount, type, loanAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount, loanCountMaried) => {
+//     if(isSingle){
+//         cy.get('#rentAmount-input').type(rentAmount).should('have.class', 'ng-valid')
+//         cy.get('#loanCount-input').select(loanCount).should('have.class', 'ng-valid')
+//         cy.get('#type-input').select(type).should('have.class', 'ng-valid')
+//         cy.get('#loanAmount-input').type(loanAmount).should('have.class', 'ng-valid')
+//     }
+//     if(isMariedOrPaced){
+//         cy.get('#mortgageAmount-input').type(mortgageAmount).should('have.class', 'ng-valid')
+//         cy.get('#childSupportPaymentsAmount-input').type(childSupportPaymentsAmount).should('have.class', 'ng-valid')
+//         cy.get('#childCareExpensesAmount-input').type(childCareExpensesAmount).should('have.class', 'ng-valid')
+//         cy.get('#loanCount-input').select(loanCountMaried).should('have.class', 'ng-valid')
+//     }
+    
+// })
+Cypress.Commands.add('outcomeUser', (isOwner, isTenant, isOwnerWithCredit, isParent,  haveOtherLoan, rentAmount, mortgageAmount, childSupportPaymentsAmount, childCareExpensesAmount,loanCount, type, loanAmount) => {
+    if(isTenant){
         cy.get('#rentAmount-input').type(rentAmount).should('have.class', 'ng-valid')
-        cy.get('#loanCount-input').select(loanCount).should('have.class', 'ng-valid')
-        cy.get('#type-input').select(type).should('have.class', 'ng-valid')
-        cy.get('#loanAmount-input').type(loanAmount).should('have.class', 'ng-valid')
     }
-    if(isMariedOrPaced){
+    if(isOwnerWithCredit){
         cy.get('#mortgageAmount-input').type(mortgageAmount).should('have.class', 'ng-valid')
+    }
+    if(isParent){
         cy.get('#childSupportPaymentsAmount-input').type(childSupportPaymentsAmount).should('have.class', 'ng-valid')
         cy.get('#childCareExpensesAmount-input').type(childCareExpensesAmount).should('have.class', 'ng-valid')
-        cy.get('#loanCount-input').select(loanCountMaried).should('have.class', 'ng-valid')
     }
-    
+    if(haveOtherLoan || isOwner){
+        cy.get('#loanCount-input').select(loanCount).should('have.class', 'ng-valid')
+        if(loanCount >=1){
+        cy.get('#type-input').select(type).should('have.class', 'ng-valid')
+        cy.get('#loanAmount-input').type(loanAmount).should('have.class', 'ng-valid')
+        } 
+    }
 })
 Cypress.Commands.add('bankUser', (bankCode, bankFromYear) => {
     cy.get('#bankCode-input').select(bankCode).should('have.class', 'ng-valid')
