@@ -1,10 +1,9 @@
-describe('Younited-credit tests', () =>{
+let profiles = require('../../fixtures/profiles')
 
-    
-    let profiles = require('../../fixtures/profiles')
+profiles.forEach(profile => {
 
-    profiles.forEach(profile => {
-        console.log(profile.name);
+    describe(`Younited-credit tests: ${profile.name}`, () =>{
+
         before('connection site test', () => {
             cy.visit('https://www.younited-credit.com')
             cy.urlWebSite('younited-credit')
@@ -105,11 +104,6 @@ describe('Younited-credit tests', () =>{
         it('Commercial Offer Test', () =>{
             cy.urlWebSite('/modify-offer')
             cy.pageTitle('Younited Credit')
-        })
-    
-    
+        })   
     })
-    
-
-
 })
