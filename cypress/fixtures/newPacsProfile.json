@@ -1,0 +1,89 @@
+{
+    "landingStep":{
+        "projectSelect": "HITECH",
+        "amount": "2K",
+        "creditMaturity": "M12"
+    },
+    "identityStep":{
+        "gender" : "#GENDERCODE_M",
+        "maritalStatus" : "COHABITING", 
+        "lastName": "Posichon" ,
+        "firstName": "Paul", 
+        "dateOfBirthDay": "2", 
+        "dateOfBirthMouth": "1", 
+        "dateOfBirthYear": "1957", 
+        "address": "69 Bld Bracame'", 
+        "postalCode": "33000", 
+        "city" : "3306333000", 
+        "countryZone" : "FR" , 
+        "email" : "fosigaza-0467@yopmail.com",
+        "cellPhoneNumber" : "07785541269", 
+        "phoneNumber" : "09687452120",
+        "childNumber" : "1",  
+        "insurance_subscribers" : "YES_NO"
+    },
+    "partnerIdentityStep":{
+        "PartnerGender" :"#GENDERCODE_MLLE",
+        "partnerLastName": "Brasletti",
+        "partnerFirstName": "Guina",
+        "partnerDateOfBirthDay": "26",
+        "partnerDateOfBirthMouth": "9",
+        "partnerDateOfBirthYear": "1960",
+        "partnerPostalCode" :"92000",
+        "partnerCity" :"9205092000"
+    },
+    "activityStep":{
+        "activitySector" : "RETIRED", 
+        "profession" : "RETIRED_FROM_PUBLIC_SECTOR",
+        "pensionFromMouth" : "12", 
+        "pensionFromYear" : "2015",
+        "mainIncome" : "2000" 
+    },
+    "partnerActivityStep":{
+        "partnerActivitySector": "RETIRED",
+        "partnerProfession": "RETIRED_FROM_PRIVATE_SECTOR",
+        "partnerPensionFromMouth" : "6", 
+        "partnerPensionFromYear" : "2010",
+        "coIncome" : "3000"
+    },
+    "houseStep":{
+        "housingStatus" : "LODGING_PROVIDED_BY_PARTNER", 
+        "housingStatusMouth" : "6",
+        "housingStatusYear" : "1980", 
+        "housingAssistance" : "0", 
+        "additionalIncome" : "1500", 
+        "mortgageAmount" : "1000",
+        "rentAmount" : "200",
+        "childSupportPaymentsAmount" : "0",
+        "childCareExpensesAmount" : "700",
+        "loanCount" : "0"
+    },
+    "bankStep":{
+        "bankCode" : "HSBC", 
+        "bankFromYear" : "1980" 
+    }, 
+     "activityStatus":{
+        "isIndependent":false,
+        "isSalarie":false,
+        "isRetired":true
+    },
+    "partnerActivityStatus":{
+        "isMariedOrPaced":true,
+        "isSalarie":false, 
+        "isRetired":true
+    },
+    "houseStatus":{
+        "isOwner":false,
+        "isTenant":true, 
+        "isOwnerWithCredit":false,
+        "isParent":true,
+         "haveOtherLoan":true
+    },
+    "mariedStatus":{
+        "isMariedOrPaced":true
+    },
+    "partnerStatus":{
+        "isPartner":true,
+        "isMaried": false
+    }
+}

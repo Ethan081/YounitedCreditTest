@@ -1,19 +1,15 @@
-describe('Single credit tests', () =>{
+describe('Younited-credit tests', () =>{
 
-    //let profile = require('../../../fixtures/singleProfile')
+    
+    let profiles = require('../../fixtures/profiles')
 
-    let profile = require('../../../fixtures/singleFlagProfile')
-
-    //utiliser avec une seul fixture
-    /*
-    let profiles = require('../../../fixtures/profiles')
     profiles.forEach(profile => {
-    */
+        console.log(profile.name);
         before('connection site test', () => {
             cy.visit('https://www.younited-credit.com')
             cy.urlWebSite('younited-credit')
             cy.pageTitle( 'Le Crédit 100% en Ligne – Réponse en 24h | Younited Credit')
-            cy.clearCookies()
+        
         })
 
         it('landing page', () =>{
@@ -111,9 +107,9 @@ describe('Single credit tests', () =>{
             cy.pageTitle('Younited Credit')
         })
     
-    /*
+    
     })
-    */
+    
 
 
 })
