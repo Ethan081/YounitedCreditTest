@@ -1,6 +1,6 @@
 describe('Maried credit tests', () =>{
 
-    let profile = require('../../../fixtures/newMariedProfile')
+    let profile = require('../../../fixtures/oldJDD/newMariedProfile')
 
     before('connection site test', () =>{
         cy.visit('https://www.younited-credit.com/')

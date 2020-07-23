@@ -2,7 +2,7 @@ describe('Single credit tests', () =>{
 
     //let profile = require('../../../fixtures/singleProfile')
 
-    let profile = require('../../../fixtures/singleFlagProfile')
+    let profile = require('../../../fixtures/oldJDD/singleFlagProfile')
 
     //utiliser avec une seul fixture
     /*

@@ -1,13 +1,15 @@
-let profiles = require('../../fixtures/profiles')
+let profiles = require('../fixtures/profiles')
 
 profiles.forEach(profile => {
 
     describe(`Younited-credit tests: ${profile.name}`, () =>{
 
         before('connection site test', () => {
+            cy.clearCookies()
             cy.visit('https://www.younited-credit.com')
             cy.urlWebSite('younited-credit')
             cy.pageTitle( 'Le Crédit 100% en Ligne – Réponse en 24h | Younited Credit')
+            
         
         })
 
