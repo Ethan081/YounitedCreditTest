@@ -92,23 +92,7 @@ profiles.forEach(profile => {
             cy.urlWebSite('/contact')
             cy.pageTitle('Younited Credit')
             cy.contactUser( profile.identityStep)
-            cy.buttonClick('Suite')
-        })
-        it('Assurance Test', () =>{
-            cy.urlWebSite('/offers')
-            cy.pageTitle('Younited Credit')
-            cy.insuranceUser(profile.identityStep)
-            cy.buttonClick('Suite')
-        })
-        if(profile.identityStep.insurance_subscribers == "YES_NO"){
-            it('Whithout Assurance Test', () =>{
-                cy.buttonClick('Continuer sans assurance')
-            })
-        }
-        
-        it('Commercial Offer Test', () =>{
-            cy.urlWebSite('/modify-offer')
-            cy.pageTitle('Younited Credit')
-        })   
+            //cy.buttonClick('Suite')
+        }) 
     })
 })

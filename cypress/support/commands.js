@@ -11,6 +11,7 @@ Cypress.Commands.add("emailUser", (identityStep) => {
     cy.get('#email-input')
         .type(identityStep.email)
         .should('have.value',identityStep.email)
+        .should('have.class', 'ng-valid')
 })
 
 Cypress.Commands.add("familySituationUser", (identityStep) => {

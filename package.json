@@ -6,13 +6,9 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run:chrome": "cypress run --record --key $RECORDID --browser chrome --headless",
-    "cy:run:simplereport": "cypress run --record --key $RECORDID --browser chrome --headless --reporter mochawesome",
-
-    "cy:run": "rimraf mochawesome-report cypress/results mochawesome.json && cypress run --browser chrome --reporter mochawesome",
-    "mergeReport": "npx mochawesome-merge 'cypress/results/*.json' > mochawesome.json",
-    "generateReport":"npx marge mochawesome.json",
+    "cy:run:report": "cypress run --record --key $RECORDID --browser chrome --headless --reporter mochawesome",
+    "cy:run:report:html": "rimraf mochawesome-report cypress/results mochawesome.json && cypress run --browser chrome --reporter mochawesome"
     
-    "cy:run:report" : "npm run cy:run && npm run mergeReport && npm run generateReport"
   },
   "repository": {
     "type": "git",
