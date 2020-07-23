@@ -4,16 +4,11 @@ profiles.forEach(profile => {
 
     describe(`Younited-credit tests: ${profile.name}`, () =>{
 
-        before('connection site test', () => {
-            cy.clearCookies()
+        
+        it('landing page', () =>{
             cy.visit('https://www.younited-credit.com')
             cy.urlWebSite('younited-credit')
             cy.pageTitle( 'Le Crédit 100% en Ligne – Réponse en 24h | Younited Credit')
-            
-        
-        })
-
-        it('landing page', () =>{
             cy.landingchooseUser(profile.landingStep)
             cy.buttonClick('CONTINUER')
         })
@@ -52,19 +47,13 @@ profiles.forEach(profile => {
             cy.buttonClick('Suite')
         })
 
-        if(profile.identityStep.maritalStatus != "SINGLE"){
+        if(profile.identityStep.maritalStatus !== "SINGLE"){
             it('Partner Activity Sector Test', () =>{
                 cy.urlWebSite('/partnerprofession')
                 cy.pageTitle('Younited Credit')
                 cy.partnerActivityMariedUser(profile.partnerActivityStatus, profile.partnerActivityStep)
                 cy.buttonClick('Suite')
                 
-            })
-            it('Identity Partner Test', () =>{
-                cy.urlWebSite('/partneridentity')
-                cy.pageTitle('Younited Credit')
-                cy.identityPartnerUser(profile.partnerStatus, profile.partnerIdentityStep)
-                cy.buttonClick('Suite')
             })
         }
         it('Main Income Test', () =>{
@@ -91,6 +80,14 @@ profiles.forEach(profile => {
             cy.identityUser(profile.identityStep)
             cy.buttonClick('Suite')
         })
+        if(profile.identityStep.maritalStatus !== "SINGLE"){
+            it('Identity Partner Test', () =>{
+                cy.urlWebSite('/partneridentity')
+                cy.pageTitle('Younited Credit')
+                cy.identityPartnerUser(profile.partnerStatus, profile.partnerIdentityStep)
+                cy.buttonClick('Suite')
+            })
+        }
         it('Contact Test', () =>{
             cy.urlWebSite('/contact')
             cy.pageTitle('Younited Credit')
@@ -103,6 +100,12 @@ profiles.forEach(profile => {
             cy.insuranceUser(profile.identityStep)
             cy.buttonClick('Suite')
         })
+        if(profile.identityStep.insurance_subscribers == "YES_NO"){
+            it('Whithout Assurance Test', () =>{
+                cy.buttonClick('Continuer sans assurance')
+            })
+        }
+        
         it('Commercial Offer Test', () =>{
             cy.urlWebSite('/modify-offer')
             cy.pageTitle('Younited Credit')

@@ -178,10 +178,10 @@
             "cellPhoneNumber" : "07785541269", 
             "phoneNumber" : "09687452120",
             "childNumber" : "1",  
-            "insurance_subscribers" : "YES_NO"
+            "insurance_subscribers" : "YES_YES"
         },
         "partnerIdentityStep":{
-            "PartnerGender" :"#GENDERCODE_MLLE",
+            "partnerGender" :"#GENDERCODE_MLLE",
             "partnerLastName": "Brasletti",
             "partnerFirstName": "Guina",
             "partnerDateOfBirthDay": "26",

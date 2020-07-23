@@ -1,9 +1,8 @@
 {
   "projectId": "d1cjpg",
-  "reporter": "mochawesome",
   "pageLoadTimeout": 70000,
   "defaultCommandTimeout": 6000,
-  
+  "reporter": "mochawesome",
   "reporterOptions": {
         "reportDir": "cypress/results",
         "overwrite": false,
